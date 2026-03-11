@@ -1,4 +1,4 @@
-# HomePageFinalModel1.2 — Projects Hub
+# MP-Projects-HubJS — Projects Hub
 
 פורטפוליו אישי לפיתוח ווב — אתר רב-דפים (non-SPA) שמרכז **15 פרויקטים** בשתי קטגוריות:
 דפי נחיתה HTML/CSS ואפליקציות JavaScript אינטראקטיביות.
@@ -79,7 +79,7 @@ python -m http.server 8080
 ## מבנה הפרויקט
 
 ```
-HomePageFinalModel1.2/
+MP-Projects-HubJS/
 ├── index.html                     דף הבית — גריד כרטיסים
 ├── sty.css                        עיצוב דף הבית
 ├── README.md                      קובץ זה
@@ -125,7 +125,7 @@ HomePageFinalModel1.2/
 
 ## GitHub
 
-**Repository:** [Michael2001papis/HomePageFinalModel1.2](https://github.com/Michael2001papis/HomePageFinalModel1.2)
+**Repository:** [Michael2001papis/MP-Projects-HubJS](https://github.com/Michael2001papis/MP-Projects-HubJS)
 
 ---
 
