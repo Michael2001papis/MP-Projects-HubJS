@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>מדינות העולם</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./SCWorld.css">
+</head>
+<body class="bg-dark">
+
+    <div class="bg-primary">
+        <h1 class="text-center text-white p-4">מדינות העולם</h1>
+    </div>
+
+    <h4 class="text-center text-white mt-3">חיפוש</h4>
+    <div class="m-auto mt-1 d-flex justify-content-center col-md-6 col-sm-12">
+        <input id="search-input" class="form-control m-4" placeholder="חפש מדינה..." />
+    </div>
+
+    <div id="loading" class="text-center text-white mt-4" style="display:none;">
+        <p>טוען מדינות...</p>
+    </div>
+    <div id="error-msg" class="text-center text-danger mt-4" style="display:none;"></div>
+
+    <div id="cards" class="container d-flex flex-wrap justify-content-center"></div>
+
+    <div class="text-center mt-4 mb-4">
+        <a href="../../../index.html" class="btn btn-outline-light">← חזרה לדף הבית</a>
+    </div>
+
+    <script src="./countries-app.js" defer></script>
+</body>
+</html>

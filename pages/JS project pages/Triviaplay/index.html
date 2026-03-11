@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>טריוויה</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <div class="game">
+        <header class="game__header">
+            <h1>טריוויה</h1>
+            <div class="progress">
+                <div class="progress__bar" id="progress-bar"></div>
+            </div>
+            <span class="progress__text" id="progress-text">1 / 14</span>
+        </header>
+
+        <div id="question-area" class="game__body">
+            <p id="question" class="question-text"></p>
+            <div class="answers">
+                <button id="answer-1" class="answer-btn" type="button"></button>
+                <button id="answer-2" class="answer-btn" type="button"></button>
+                <button id="answer-3" class="answer-btn" type="button"></button>
+                <button id="answer-4" class="answer-btn" type="button"></button>
+            </div>
+        </div>
+
+        <div id="score-area" class="game__result" style="display:none">
+            <p id="result" class="result-text"></p>
+            <p id="score" class="score-text"></p>
+        </div>
+
+        <div class="game__footer">
+            <button id="reset" class="ctrl-btn">התחל מחדש</button>
+            <a href="../../../index.html" class="back-link">← חזרה</a>
+        </div>
+    </div>
+</body>
+</html>

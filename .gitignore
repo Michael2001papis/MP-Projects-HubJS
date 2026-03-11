@@ -1,0 +1,22 @@
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+desktop.ini
+.DS_Store
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (if added later)
+node_modules/
+npm-debug.log*
+
+# Misc
+*.log
+*.tmp
+*.bak

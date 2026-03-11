@@ -1,0 +1,153 @@
+:root {
+    --bg: #0f1419;
+    --surface: #1a2332;
+    --card-bg: #253346;
+    --card-flip: #1e2a3a;
+    --accent: #e8b86d;
+    --green: #34d399;
+    --text: #e6edf3;
+    --text-dim: #8b9cad;
+    --radius: 14px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { height: 100%; }
+
+body {
+    font-family: 'Heebo', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    direction: rtl;
+}
+
+.hud {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.hud h1 {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--text), var(--text-dim));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.4rem;
+}
+
+.hud__stats {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    color: var(--text-dim);
+}
+
+.hud__stats strong { color: var(--accent); }
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(6px, 1.5vw, 12px);
+    width: 100%;
+    max-width: min(440px, 92vw);
+}
+
+.card {
+    aspect-ratio: 1;
+    background: var(--card-bg);
+    border: 2px solid rgba(255,255,255,0.04);
+    border-radius: clamp(8px, 2vw, var(--radius));
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    color: transparent;
+    transition: transform 0.4s, background 0.3s, border-color 0.3s, box-shadow 0.3s;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.card.flipped {
+    color: var(--text);
+    background: var(--card-flip);
+    transform: rotateY(180deg);
+    border-color: var(--accent);
+}
+
+.card.matched {
+    background: rgba(52,211,153,0.15);
+    color: var(--text);
+    border-color: var(--green);
+    cursor: default;
+    animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+    0% { transform: rotateY(180deg) scale(1); }
+    50% { transform: rotateY(180deg) scale(1.1); }
+    100% { transform: rotateY(180deg) scale(1); }
+}
+
+.actions {
+    margin-top: 1.25rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.reset-button, .home-button {
+    font-family: 'Heebo', sans-serif;
+    font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.reset-button {
+    background: rgba(232,184,109,0.15);
+    color: var(--accent);
+    border: 1px solid rgba(232,184,109,0.25);
+}
+.reset-button:hover { background: rgba(232,184,109,0.25); }
+.reset-button:active { transform: scale(0.95); }
+
+.home-button {
+    background: rgba(139,156,173,0.1);
+    color: var(--text-dim);
+    border: 1px solid rgba(255,255,255,0.06);
+}
+.home-button:hover { background: rgba(139,156,173,0.2); color: var(--text); }
+
+@media (max-height: 600px) {
+    .hud { margin-bottom: 0.5rem; }
+    .hud h1 { font-size: 1.2rem; }
+    .game-board { max-width: min(340px, 55vh); }
+    .actions { margin-top: 0.75rem; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .game-board {
+        max-width: min(300px, 65vh);
+    }
+}
+
+@media (hover: none) {
+    .card:hover { border-color: rgba(255,255,255,0.04); box-shadow: none; }
+    .card:active { border-color: rgba(232,184,109,0.2); }
+}

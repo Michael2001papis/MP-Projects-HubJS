@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>סנייק</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./sty.css">
+    <script src="./scr.js" defer></script>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="hud">
+            <h1>סנייק</h1>
+            <span class="hud__score">ניקוד: <strong id="scoreDisplay">0</strong></span>
+        </header>
+        <canvas id="gameCanvas"></canvas>
+        <div class="d-pad" id="dpad">
+            <span class="d-pad__spacer"></span>
+            <button class="d-pad__btn" data-dir="UP">▲</button>
+            <span class="d-pad__spacer"></span>
+            <button class="d-pad__btn" data-dir="LEFT">◀</button>
+            <span class="d-pad__spacer"></span>
+            <button class="d-pad__btn" data-dir="RIGHT">▶</button>
+            <span class="d-pad__spacer"></span>
+            <button class="d-pad__btn" data-dir="DOWN">▼</button>
+            <span class="d-pad__spacer"></span>
+        </div>
+        <div class="controls">
+            <button id="restartBtn">משחק חדש</button>
+            <a href="../../../index.html" class="back-link">← חזרה</a>
+        </div>
+    </div>
+</body>
+</html>

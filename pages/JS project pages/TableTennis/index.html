@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>טניס שולחן</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="hud">
+            <h1>טניס שולחן</h1>
+            <div class="scoreboard">
+                <span class="score-item blue">W/S: <strong id="leftScore">0</strong></span>
+                <span class="score-vs">vs</span>
+                <span class="score-item red">↑/↓: <strong id="rightScore">0</strong></span>
+            </div>
+        </header>
+        <canvas id="pong"></canvas>
+        <p class="touch-hint">גע בצד שמאל/ימין של המסך כדי להזיז את המחבטים</p>
+        <div class="controls">
+            <button class="ctrl-btn" id="startBtn">התחל</button>
+            <button class="ctrl-btn ctrl-btn--dim" id="stopBtn">עצור</button>
+            <a href="../../../index.html" class="back-link">← חזרה</a>
+        </div>
+    </div>
+</body>
+</html>

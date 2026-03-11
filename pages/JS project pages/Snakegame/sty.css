@@ -1,0 +1,146 @@
+:root {
+    --bg: #0f1419;
+    --surface: #1a2332;
+    --accent: #e8b86d;
+    --green: #34d399;
+    --red: #f87171;
+    --text: #e6edf3;
+    --text-dim: #8b9cad;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { height: 100%; overflow: hidden; }
+
+body {
+    font-family: 'Heebo', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    padding: 1rem env(safe-area-inset-right) 1rem env(safe-area-inset-left);
+    direction: rtl;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    max-height: 100%;
+}
+
+.hud { text-align: center; }
+
+.hud h1 {
+    font-size: clamp(1.3rem, 4vw, 2rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--text), var(--text-dim));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hud__score { color: var(--text-dim); font-size: clamp(0.85rem, 2.5vw, 1.1rem); }
+.hud__score strong { color: var(--accent); }
+
+#gameCanvas {
+    background: var(--surface);
+    border: 2px solid rgba(255,255,255,0.06);
+    border-radius: clamp(8px, 2vw, 14px);
+    display: block;
+    width: min(400px, 85vw, 85vh);
+    height: min(400px, 85vw, 85vh);
+    touch-action: none;
+}
+
+.controls {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.d-pad {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    width: 150px;
+}
+
+.d-pad__btn {
+    width: 46px;
+    height: 46px;
+    background: rgba(232,184,109,0.12);
+    color: var(--accent);
+    border: 1px solid rgba(232,184,109,0.2);
+    border-radius: 10px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.d-pad__btn:active { background: rgba(232,184,109,0.3); }
+.d-pad__spacer { visibility: hidden; }
+
+#restartBtn, .back-link { font-family: 'Heebo', sans-serif; }
+
+#restartBtn {
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+    background: rgba(232,184,109,0.15);
+    color: var(--accent);
+    border: 1px solid rgba(232,184,109,0.25);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    -webkit-tap-highlight-color: transparent;
+}
+#restartBtn:hover { background: rgba(232,184,109,0.25); }
+#restartBtn:active { transform: scale(0.95); }
+
+.back-link {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+.back-link:hover { color: var(--text); }
+
+@media (hover: none) and (pointer: coarse) {
+    .d-pad { display: grid; }
+
+    .wrapper { gap: 0.5rem; }
+
+    #gameCanvas {
+        width: min(400px, 80vw, 50vh);
+        height: min(400px, 80vw, 50vh);
+    }
+}
+
+@media (max-height: 600px) {
+    .wrapper { gap: 0.3rem; }
+    .hud h1 { font-size: 1.1rem; }
+    #gameCanvas {
+        width: min(300px, 75vw, 55vh);
+        height: min(300px, 75vw, 55vh);
+    }
+    .d-pad { width: 130px; }
+    .d-pad__btn { width: 40px; height: 40px; font-size: 1rem; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    #gameCanvas {
+        width: min(250px, 45vh);
+        height: min(250px, 45vh);
+    }
+    .d-pad { display: none !important; }
+}
