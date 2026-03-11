@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- 
   כותרת: הגדרת מסמך HTML
   הערה: הקוד מתחיל בהצהרת DOCTYPE לציון מסמך HTML5.
@@ -18,6 +18,9 @@
 
     <!-- כותרת: קישור לקובץ JavaScript עם defer כדי להמתין לטעינת הדף -->
     <script src="./Ul.js" defer></script>
+    <script>(function(){var t=localStorage.getItem("mp-theme");if(t)document.documentElement.setAttribute("data-theme",t)})()</script>
+    <link rel="stylesheet" href="/theme-switcher.css">
+    <link rel="stylesheet" href="/mp-rights-notice.css">
 </head>
 <body>
     <!-- כותרת: תיבה ראשית - box001 -->
@@ -32,21 +35,21 @@
           <!-- כותרת: שדה Username -->
           <div class="form-control">
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" />
+            <input type="text" id="username" name="username" required minlength="3" maxlength="50" autocomplete="username" />
             <p id="username-helper"></p>
           </div>
 
           <!-- כותרת: שדה Email -->
           <div class="form-control">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" />
+            <input type="email" id="email" name="email" required maxlength="100" autocomplete="email" />
             <p id="email-helper"></p>
           </div>
 
           <!-- כותרת: שדה Password -->
           <div class="form-control">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password"/>
+            <input type="password" id="password" name="password" required minlength="8" maxlength="64" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&amp;*]).{8,}" title="8+ characters, uppercase, lowercase, digit, special char" autocomplete="new-password" />
           </div>
 
           <!-- כותרת: כפתור שליחת טופס -->
@@ -57,5 +60,8 @@
     <!-- כותרת: אלמנט להצגת פלט -->
     <div id="output"></div>
     <footer style="text-align:center;color:#8b9cad;font-size:0.8rem;padding:1rem;"><img src="/icon/Website icon/Websiteicon.png" alt="MP" style="height:22px;width:22px;vertical-align:middle;margin-inline-end:6px;border-radius:4px;">Michael Papismedov - MP</footer>
+    <script src="/theme-switcher.js"></script>
+    <script src="/mp-security.js"></script>
+    <script src="/mp-rights-notice.js"></script>
 </body>
 </html>

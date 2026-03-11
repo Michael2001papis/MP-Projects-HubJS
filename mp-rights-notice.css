@@ -1,0 +1,177 @@
+/* ==========================================================
+   Rights Reserved Notice — Michael Papismedov – MP
+   First-visit overlay with acceptance requirement
+   ========================================================== */
+
+.mp-rights-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    opacity: 0;
+    animation: mp-fadeIn 0.5s ease forwards;
+    padding: 20px;
+    font-family: 'Heebo', 'Segoe UI', Arial, sans-serif;
+    direction: ltr;
+}
+.mp-rights-overlay.mp-hide {
+    animation: mp-fadeOut 0.4s ease forwards;
+    pointer-events: none;
+}
+
+@keyframes mp-fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes mp-fadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+.mp-rights-card {
+    background: linear-gradient(145deg, #141c28 0%, #1a2a3e 50%, #0f1922 100%);
+    border: 1px solid rgba(232, 184, 109, 0.2);
+    border-radius: 22px;
+    padding: 44px 40px 36px;
+    max-width: 460px;
+    width: 100%;
+    text-align: center;
+    color: #e6edf3;
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        0 0 60px rgba(232, 184, 109, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transform: translateY(30px) scale(0.95);
+    animation: mp-cardIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s forwards;
+}
+@keyframes mp-cardIn {
+    to { transform: translateY(0) scale(1); }
+}
+
+.mp-rights-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    object-fit: cover;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(232, 184, 109, 0.25);
+}
+
+.mp-rights-title {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #e8b86d;
+    margin: 0 0 6px;
+    letter-spacing: 0.02em;
+}
+
+.mp-rights-dev {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e6edf3;
+    margin: 0 0 20px;
+}
+
+.mp-rights-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #e8b86d, transparent);
+    margin: 0 auto 20px;
+    border: none;
+}
+
+.mp-rights-text {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: #8b9cad;
+    margin: 0 0 10px;
+}
+
+.mp-rights-copy {
+    font-size: 0.78rem;
+    color: #5a6a7a;
+    margin: 0 0 28px;
+}
+
+.mp-rights-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 36px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: #0f1419;
+    background: linear-gradient(135deg, #e8b86d 0%, #d4a24c 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 20px rgba(232, 184, 109, 0.3);
+    outline: none;
+    letter-spacing: 0.02em;
+}
+.mp-rights-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 30px rgba(232, 184, 109, 0.45);
+}
+.mp-rights-btn:active {
+    transform: scale(0.97);
+}
+
+/* --- Light theme adaptation --- */
+html[data-theme="light"] .mp-rights-card {
+    background: linear-gradient(145deg, #ffffff 0%, #f5f0e8 50%, #fafafa 100%);
+    border-color: rgba(184, 134, 11, 0.2);
+    color: #2d3436;
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.2),
+        0 0 60px rgba(184, 134, 11, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+html[data-theme="light"] .mp-rights-title {
+    color: #b8860b;
+}
+html[data-theme="light"] .mp-rights-dev {
+    color: #2d3436;
+}
+html[data-theme="light"] .mp-rights-text {
+    color: #636e72;
+}
+html[data-theme="light"] .mp-rights-copy {
+    color: #999;
+}
+html[data-theme="light"] .mp-rights-divider {
+    background: linear-gradient(90deg, transparent, #b8860b, transparent);
+}
+html[data-theme="light"] .mp-rights-btn {
+    background: linear-gradient(135deg, #b8860b 0%, #9a7209 100%);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(184, 134, 11, 0.25);
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+    .mp-rights-card {
+        padding: 32px 24px 28px;
+        border-radius: 18px;
+    }
+    .mp-rights-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 12px;
+    }
+    .mp-rights-title {
+        font-size: 1.2rem;
+    }
+    .mp-rights-btn {
+        padding: 12px 28px;
+        font-size: 0.92rem;
+    }
+}

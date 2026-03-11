@@ -1,5 +1,14 @@
 import { User } from './User.js';
 
+const esc = (str) => {
+    if (typeof str !== 'string') return '';
+    const d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+};
+
+const maskPw = (pw) => '\u2022'.repeat(Math.min(pw.length, 12));
+
 const drawTableRows = (users) => {
     const tableBody = document.querySelector('#users-table-body');
 
@@ -8,10 +17,10 @@ const drawTableRows = (users) => {
     users.forEach((user) => {
         const row = document.createElement('tr');
         row.innerHTML = `
-        <td>${user.firstName}</td>
-        <td>${user.lastName}</td>
-        <td>${user.email}</td>
-        <td>${user.password}</td>
+        <td>${esc(user.firstName)}</td>
+        <td>${esc(user.lastName)}</td>
+        <td>${esc(user.email)}</td>
+        <td>${maskPw(user.password)}</td>
         <td>${user.isLogedIn ? 'מחובר' : 'מנותק'}</td>
         `;
         /*-/ כפתור התנתקות משתמש /-*/
@@ -69,14 +78,14 @@ const drawTableRows = (users) => {
                 user.password = passwordInput.value;
 
                 // עדכון התצוגה
-                tableBody.innerHTML = ''; // לנקות את התוכן הקודם בטבלה
+                tableBody.innerHTML = '';
                 users.forEach((user) => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                    <td>${user.firstName}</td>
-                    <td>${user.lastName}</td>
-                    <td>${user.email}</td>
-                    <td>${user.password}</td>
+                    <td>${esc(user.firstName)}</td>
+                    <td>${esc(user.lastName)}</td>
+                    <td>${esc(user.email)}</td>
+                    <td>${maskPw(user.password)}</td>
                     <td>${user.isLogedIn ? 'מחובר' : 'מנותק'}</td>
                     `;
                     row.appendChild(logoutBtn);
@@ -88,12 +97,11 @@ const drawTableRows = (users) => {
 
             // ביטול העריכות כאשר לוחצים על כפתור 'ביטול'
             cancelButton.addEventListener('click', () => {
-                // פשוט מחזירים את השורה למצב הקודם שלה
                 row.innerHTML = `
-                <td>${user.firstName}</td>
-                <td>${user.lastName}</td>
-                <td>${user.email}</td>
-                <td>${user.password}</td>
+                <td>${esc(user.firstName)}</td>
+                <td>${esc(user.lastName)}</td>
+                <td>${esc(user.email)}</td>
+                <td>${maskPw(user.password)}</td>
                 <td>${user.isLogedIn ? 'מחובר' : 'מנותק'}</td>
                 `;
                 row.appendChild(logoutBtn);

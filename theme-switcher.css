@@ -1,0 +1,363 @@
+/* ==========================================================
+   Theme Switcher — MP Projects Hub
+   Allows users to toggle between dark and light backgrounds.
+   Dark  → /images/Website background/black/Website backgroundblack.png
+   Light → /images/Website background/white/Website backgroundwhite.png
+   ========================================================== */
+
+/* ---- Smooth transitions when theme is active ---- */
+html[data-theme] body,
+html[data-theme] header,
+html[data-theme] .header,
+html[data-theme] footer,
+html[data-theme] .footer {
+    transition: background-color 0.45s ease, color 0.45s ease, border-color 0.45s ease;
+}
+
+/* =============================================
+   TOGGLE BUTTON
+   ============================================= */
+.theme-toggle {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 99999;
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 23px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+    background: rgba(26, 35, 50, 0.88);
+    color: #e8b86d;
+    padding: 0;
+    outline: none;
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+}
+.theme-toggle:hover {
+    transform: scale(1.14);
+    box-shadow: 0 6px 32px rgba(0, 0, 0, 0.5);
+}
+.theme-toggle:active {
+    transform: scale(0.93);
+}
+
+html[data-theme="light"] .theme-toggle {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 0, 0, 0.12);
+    color: #333;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* =============================================
+   LIGHT THEME OVERRIDES
+   ============================================= */
+
+/* --- CSS custom-property overrides (for dark pages using :root vars) --- */
+html[data-theme="light"] {
+    --bg: #f4f4f4;
+    --bg-deep: #f4f4f4;
+    --bg-surface: #ffffff;
+    --bg-card: #ffffff;
+    --surface: #ffffff;
+    --card: #f0f0f0;
+    --card-bg: #ffffff;
+    --card-flip: #e2e2e2;
+    --cell-bg: #dfe4ea;
+    --cell-hover: #ced6e0;
+    --key-bg: #dfe4ea;
+    --key-hover: #ced6e0;
+    --accent: #b8860b;
+    --accent-dim: rgba(184, 134, 11, 0.13);
+    --text: #2d3436;
+    --text-soft: #636e72;
+    --text-dim: #636e72;
+    --green: #27ae60;
+    --red: #e74c3c;
+    --blue: #2980b9;
+    --x-color: #2980b9;
+    --o-color: #e74c3c;
+    --win-color: #27ae60;
+    --fn: #636e72;
+    --op: #b8860b;
+    --eq: #b8860b;
+    --border: rgba(0, 0, 0, 0.1);
+    --shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Body / HTML --- */
+html[data-theme="light"],
+html[data-theme="light"] body {
+    background-color: #f4f4f4 !important;
+    background-image: url('/images/Website background/white/Website backgroundwhite.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    color: #2d3436 !important;
+}
+
+/* --- Headers --- */
+html[data-theme="light"] header,
+html[data-theme="light"] .header {
+    background: rgba(255, 255, 255, 0.82) !important;
+    color: #2d3436 !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* --- Footers --- */
+html[data-theme="light"] footer,
+html[data-theme="light"] .footer {
+    background: rgba(255, 255, 255, 0.82) !important;
+    color: #555 !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* --- Headings --- */
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4,
+html[data-theme="light"] h5 {
+    color: #1e272e !important;
+}
+
+/* --- Subtitles / soft text --- */
+html[data-theme="light"] .subtitle,
+html[data-theme="light"] .text-soft {
+    color: #636e72 !important;
+}
+
+/* --- Links --- */
+html[data-theme="light"] a:not(.card):not(.theme-toggle) {
+    color: #0984e3 !important;
+}
+html[data-theme="light"] a:not(.card):not(.theme-toggle):hover {
+    color: #0652DD !important;
+}
+
+/* --- Form elements --- */
+html[data-theme="light"] input:not([type="button"]):not([type="submit"]),
+html[data-theme="light"] select,
+html[data-theme="light"] textarea {
+    background-color: #fff !important;
+    color: #2d3436 !important;
+    border-color: #b2bec3 !important;
+}
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder {
+    color: #999 !important;
+}
+
+/* --- Tables --- */
+html[data-theme="light"] table {
+    color: #2d3436 !important;
+}
+html[data-theme="light"] th {
+    background-color: rgba(0, 0, 0, 0.04) !important;
+    color: #2d3436 !important;
+}
+html[data-theme="light"] td {
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    color: #2d3436 !important;
+}
+html[data-theme="light"] tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02) !important;
+}
+
+/* --- Homepage specific --- */
+html[data-theme="light"] .noise {
+    opacity: 0.02 !important;
+}
+html[data-theme="light"] .card {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+html[data-theme="light"] .card__overlay {
+    background: linear-gradient(180deg, transparent 40%, rgba(255, 255, 255, 0.92) 100%) !important;
+}
+html[data-theme="light"] .card__label {
+    color: #1e272e !important;
+}
+
+/* --- Paragraphs / labels / list items --- */
+html[data-theme="light"] p,
+html[data-theme="light"] span,
+html[data-theme="light"] label,
+html[data-theme="light"] li,
+html[data-theme="light"] small,
+html[data-theme="light"] figcaption {
+    color: #2d3436 !important;
+}
+
+/* --- Buttons (non-toggle) --- */
+html[data-theme="light"] button:not(.theme-toggle) {
+    border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+/* --- Scroll / code / pre --- */
+html[data-theme="light"] pre,
+html[data-theme="light"] code {
+    background-color: #f1f2f6 !important;
+    color: #2d3436 !important;
+}
+
+/* =============================================
+   DARK THEME OVERRIDES
+   ============================================= */
+
+/* --- Body / HTML --- */
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+    background-color: #0f1419 !important;
+    background-image: url('/images/Website background/black/Website backgroundblack.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    color: #e6edf3 !important;
+}
+
+/* --- Headers --- */
+html[data-theme="dark"] header,
+html[data-theme="dark"] .header {
+    background: rgba(15, 20, 25, 0.88) !important;
+    color: #e6edf3 !important;
+    border-color: rgba(255, 255, 255, 0.06) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* --- Footers --- */
+html[data-theme="dark"] footer,
+html[data-theme="dark"] .footer {
+    background: rgba(15, 20, 25, 0.88) !important;
+    color: #8b9cad !important;
+    border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* --- Headings --- */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5 {
+    color: #e6edf3 !important;
+}
+
+/* --- Subtitles --- */
+html[data-theme="dark"] .subtitle {
+    color: #8b9cad !important;
+}
+
+/* --- Links --- */
+html[data-theme="dark"] a:not(.card):not(.theme-toggle) {
+    color: #e8b86d !important;
+}
+html[data-theme="dark"] a:not(.card):not(.theme-toggle):hover {
+    color: #f0cf8a !important;
+}
+
+/* --- Form elements --- */
+html[data-theme="dark"] input:not([type="button"]):not([type="submit"]),
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+    background-color: #1a2332 !important;
+    color: #e6edf3 !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+    color: #6b7c8d !important;
+}
+
+/* --- Tables --- */
+html[data-theme="dark"] table {
+    color: #e6edf3 !important;
+}
+html[data-theme="dark"] th {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    color: #e6edf3 !important;
+}
+html[data-theme="dark"] td {
+    border-color: rgba(255, 255, 255, 0.06) !important;
+    color: #c9d1d9 !important;
+}
+html[data-theme="dark"] tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* --- Paragraphs / labels / list items --- */
+html[data-theme="dark"] p,
+html[data-theme="dark"] span,
+html[data-theme="dark"] label,
+html[data-theme="dark"] li,
+html[data-theme="dark"] small,
+html[data-theme="dark"] figcaption {
+    color: #c9d1d9 !important;
+}
+
+/* --- Containers / cards (light pages forced dark) --- */
+html[data-theme="dark"] .container,
+html[data-theme="dark"] .main-content,
+html[data-theme="dark"] .project-card,
+html[data-theme="dark"] .card-container {
+    background-color: rgba(26, 35, 50, 0.75) !important;
+    color: #e6edf3 !important;
+    border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* --- Buttons (non-toggle) --- */
+html[data-theme="dark"] button:not(.theme-toggle) {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* --- Scroll / code / pre --- */
+html[data-theme="dark"] pre,
+html[data-theme="dark"] code {
+    background-color: #1a2332 !important;
+    color: #e6edf3 !important;
+}
+
+/* --- Light page forms forced dark --- */
+html[data-theme="dark"] .form-group,
+html[data-theme="dark"] .form-container,
+html[data-theme="dark"] .login-form,
+html[data-theme="dark"] .registration-form {
+    background-color: rgba(26, 35, 50, 0.82) !important;
+    border-color: rgba(255, 255, 255, 0.06) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* --- Bootstrap overrides for dark --- */
+html[data-theme="dark"] .navbar,
+html[data-theme="dark"] .nav-link {
+    color: #e6edf3 !important;
+}
+html[data-theme="dark"] .btn-primary {
+    background-color: #e8b86d !important;
+    border-color: #e8b86d !important;
+    color: #0f1419 !important;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 480px) {
+    .theme-toggle {
+        width: 42px;
+        height: 42px;
+        font-size: 19px;
+        bottom: 16px;
+        left: 16px;
+    }
+}
