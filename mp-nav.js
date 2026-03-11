@@ -64,13 +64,32 @@
     }
 
     function cleanOldNav() {
-        var els = document.querySelectorAll('a.back-link, a.home-button');
-        els.forEach(function (el) { el.remove(); });
+        var remove = function (sel) {
+            document.querySelectorAll(sel).forEach(function (el) { el.remove(); });
+        };
 
-        var backBtns = document.querySelectorAll('.text-center.mt-4.mb-4');
-        backBtns.forEach(function (el) {
-            var link = el.querySelector('a[href*="index.html"]');
-            if (link) el.remove();
+        remove('a.back-link');
+        remove('a.home-button');
+
+        document.querySelectorAll('.text-center.mt-4.mb-4').forEach(function (el) {
+            if (el.querySelector('a[href*="index.html"]')) el.remove();
+        });
+
+        remove('header:not(.hud):not(.game__header) > nav');
+        remove('.top-menu > nav');
+        remove('.top-menu > a');
+        remove('.header > nav');
+        remove('.header > a[target="_blank"]');
+        remove('#top-menu');
+        remove('.top-nav');
+        remove('.header-button');
+
+        remove('.btm-but');
+        remove('#bottom-main');
+
+        document.querySelectorAll('header:not(.hud):not(.game__header), .top-menu').forEach(function (el) {
+            if (el.className === 'mp-navbar' || el.closest('.mp-navbar')) return;
+            if (!el.textContent.trim()) el.remove();
         });
 
         var footers = document.querySelectorAll('footer:not(.mp-footer)');
@@ -80,15 +99,13 @@
             ).length > 0;
 
             if (hasGameControls) {
-                var children = Array.from(footer.childNodes);
-                children.forEach(function (child) {
+                footer.querySelectorAll('nav, a.home-button, a.back-link').forEach(function (el) { el.remove(); });
+                Array.from(footer.childNodes).forEach(function (child) {
                     if (child.nodeType === 1 && child.textContent &&
                         child.textContent.indexOf('Michael Papismedov') !== -1) {
                         child.remove();
                     }
                 });
-                var homeLinks = footer.querySelectorAll('a.home-button, a.back-link, a[href*="index.html"]');
-                homeLinks.forEach(function (el) { el.remove(); });
             } else {
                 footer.remove();
             }

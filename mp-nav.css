@@ -267,11 +267,48 @@ html[data-theme="light"] .mp-footer__copy {
 
 /* =============================================
    HIDE OLD NAVIGATION ELEMENTS
+   Replaced by unified mp-navbar + mp-footer
    ============================================= */
+
+/* -- Old back/home links -- */
 body.mp-has-navbar a.back-link,
 body.mp-has-navbar a.home-button,
 body.mp-has-navbar .btn.btn-outline-light[href*="index.html"],
 body.mp-has-navbar .text-center.mt-4.mb-4 {
+    display: none !important;
+}
+
+/* -- Old header navigation (all page types) -- */
+body.mp-has-navbar header:not(.hud):not(.game__header) > nav,
+body.mp-has-navbar .top-menu > nav,
+body.mp-has-navbar .top-menu > a,
+body.mp-has-navbar .header > nav,
+body.mp-has-navbar .header > a[target="_blank"],
+body.mp-has-navbar #top-menu,
+body.mp-has-navbar .top-nav,
+body.mp-has-navbar .header-button {
+    display: none !important;
+}
+
+/* -- Old footer navigation -- */
+body.mp-has-navbar footer:not(.mp-footer) > nav,
+body.mp-has-navbar .bottom-menu ul,
+body.mp-has-navbar #bottom-menu,
+body.mp-has-navbar .bottom-nav,
+body.mp-has-navbar .footer-content,
+body.mp-has-navbar .footer-menu {
+    display: none !important;
+}
+
+/* -- Old standalone navigation divs -- */
+body.mp-has-navbar .btm-but,
+body.mp-has-navbar #bottom-main {
+    display: none !important;
+}
+
+/* -- Old branding in non-mp footers (if any survive JS cleanup) -- */
+body.mp-has-navbar footer:not(.mp-footer) > p[style*="text-align"],
+body.mp-has-navbar footer:not(.mp-footer) > small {
     display: none !important;
 }
 
