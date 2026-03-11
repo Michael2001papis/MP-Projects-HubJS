@@ -17,6 +17,10 @@ html { height: 100%; }
 body {
     font-family: 'Heebo', sans-serif;
     background: var(--bg);
+    background-image: url('/images/Website background/black/Website backgroundblack.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: var(--text);
     min-height: 100vh;
     min-height: 100dvh;

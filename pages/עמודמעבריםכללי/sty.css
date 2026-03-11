@@ -2,6 +2,14 @@
 html {
     direction: rtl;
 }
+body {
+    margin: 0;
+    background-color: #f9f9f9;
+    background-image: url('/images/Website background/white/Website backgroundwhite.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
 /* עיצוב הקונטיינר הראשי */
 .main-container {
     display: flex;

@@ -6,6 +6,10 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    background-image: url('/images/Website background/white/Website backgroundwhite.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     direction: rtl;
 }
 /*--*/
